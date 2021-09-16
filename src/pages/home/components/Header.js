@@ -11,7 +11,7 @@ function Header() {
             <div>
                 <button>Novo Post</button>
                 <span>img1</span>
-                <span>img2 - Alteração</span>
+                <span>img2</span>
             </div>
         </div>
    </header>
