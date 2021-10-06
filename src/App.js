@@ -15,6 +15,7 @@ function App() {
             <Route path = "*" element = {<h1> PAGINA NÃO ENCONTRADA! </h1>}/>
         </Routes>
       </BrowserRouter>
+      {/* "IF OR ELSE outra maneira de percorrer a lista " */}
       {/*
         url === 'http://localhost:3000/'
         ? <Home />
