@@ -3,7 +3,7 @@ import React from "react";
 function Sigin() {
     return (
         <h1>
-            login:
+            Login
         </h1>
     )
 }
