@@ -57,14 +57,14 @@ function Sigin() {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [errorMessage, setErrorMessage] = useState();
+    const [errorMessage, setErrorMessage] = useState("");
 
     async function handleSigin() {        
         try {
             await authService.sigin(email, password);
             navigate('/');
         } catch (error){
-            setErrorMessage(error.response.data.message)
+            setErrorMessage(error.response.data.message);
         }
     }
 

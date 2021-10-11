@@ -1,13 +1,11 @@
 import React from "react";
 import { Button } from '@material-ui/core';
-// import './style.css'
 import { makeStyles } from '@material-ui/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import { Bell } from 'react-feather';
 import Avatar from '@material-ui/core/Avatar';
-import authService from "../../../services/authService";
 
 
 const useStyles = makeStyles({
@@ -35,7 +33,7 @@ const useStyles = makeStyles({
 
 function Header() {
     const classes = useStyles(); 
-    const user = authService.getUser();
+    const user = null;
 
      return (
          <AppBar position = "fixed" color = "inherit" className={classes.appBar}>
