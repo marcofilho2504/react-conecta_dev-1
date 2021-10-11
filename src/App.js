@@ -1,9 +1,11 @@
 import React from 'react';
+import GuestRoute from './routes/GuestRoute';
 import Sigin from './pages/sigin';
 import Home from './pages/home';
-import { ThemeProvider } from '@material-ui/core/styles';
-import theme from './theme'
+import theme from './theme';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from '@material-ui/core/styles';
+import './mock';
 
 function App() {
   return (
@@ -11,7 +13,7 @@ function App() {
       <BrowserRouter>
         <Routes>
             <Route path = "/" element = {<Home/>} />
-            <Route path = "/sigin" element = {<Sigin/>}/>
+            <GuestRoute path = "/sigin" element = {<Sigin/>}/>
             <Route path = "*" element = {<h1> PAGINA NÃO ENCONTRADA! </h1>}/>
         </Routes>
       </BrowserRouter>

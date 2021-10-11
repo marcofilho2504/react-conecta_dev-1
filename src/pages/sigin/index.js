@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from '@material-ui/styles';
 import Typography  from "@material-ui/core/Typography";
 import Grid  from '@material-ui/core/Grid';
-import Box  from '@material-ui/core/Box'
+import Box  from '@material-ui/core/Box';
 import Avatar from "@material-ui/core/Avatar";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link";
 import { useNavigate } from "react-router";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import authService from '../../services/authService';
 
 const useStyles = makeStyles(( theme ) => ({
      root: {
@@ -53,6 +55,18 @@ function Copyright () {
 function Sigin() {
     const classes = useStyles();
     const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState();
+
+    async function handleSigin() {        
+        try {
+            await authService.sigin(email, password);
+            navigate('/');
+        } catch (error){
+            setErrorMessage(error.response.data.message)
+        }
+    }
 
     return (
 
@@ -93,7 +107,9 @@ function Sigin() {
                         label = "email"
                         name = "email"
                         autoComplete = "email"
-                        autoFocus    
+                        autoFocus
+                        value = {email}
+                        onChange = {(event) => setEmail(event.target.value)}    
                     />
                     <TextField 
                         variant = "outlined"
@@ -105,15 +121,24 @@ function Sigin() {
                         type = "password"
                         id = "password"
                         autoComplete = "current-password"
+                        value = {password}
+                        onChange = {(event) => setPassword(event.target.value)} 
                     />
 
                     <Button fullWidth 
                         variant = "contained" 
                         color ="primary" 
                         className={classes.button} 
-                        oneClick = {() => navigate("/")}>
+                        onClick = {handleSigin}>
                         entrar
                     </Button>
+
+                    {
+                        errorMessage &&
+                        <FormHelperText error>
+                            {errorMessage}
+                        </FormHelperText>
+                    }
 
                     <Grid container>
                         <Grid item> 
