@@ -8,24 +8,21 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from '@material-ui/core/styles';
 import './mock';
 import store from './store'
+import Auth from './components/auth';
 
 function App() {
   return (
     <Provider store = {store}>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-          <Routes>
-              <Route path = "/" element = {<Home/>} />
-              <GuestRoute path = "/sigin" element = {<Sigin/>}/>
-              <Route path = "*" element = {<h1> PAGINA NÃO ENCONTRADA! </h1>}/>
-          </Routes>
+          <Auth>
+            <Routes>
+                <Route path = "/" element = {<Home/>} />
+                <GuestRoute path = "/sigin" element = {<Sigin/>}/>
+                <Route path = "*" element = {<h1> PAGINA NÃO ENCONTRADA! </h1>}/>
+            </Routes>
+          </Auth>
         </BrowserRouter>
-        {/* "IF OR ELSE outra maneira de percorrer a lista " */}
-        {/*
-          url === 'http://localhost:3000/'
-          ? <Home />
-          : <Sigin />
-        */ }
       </ThemeProvider>
     </Provider>
   );

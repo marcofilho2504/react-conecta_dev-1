@@ -1,10 +1,11 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import Home from '../pages/home';
-import authService from '../services/authService';
+import { useSelector } from 'react';
 
 function GuestRoute({element: Component, ...rest}) { 
-    const isAuthenticated = authService.isAuthenticated();
+    const user = useSelector(state => state.account);
+    const isAuthenticated = Boolean('account.user');
 
     return (
         <Route {...rest} element = {(

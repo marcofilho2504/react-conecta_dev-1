@@ -10,8 +10,8 @@ import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link";
 import { useNavigate } from "react-router";
 import FormHelperText from "@material-ui/core/FormHelperText";
-import sigin from '../../actions/accountActions';
-import { useSelector, useDispatch } from "react-redux";
+import { sigin } from '../../actions/accountActions';
+import { useDispatch } from "react-redux";
 
 const useStyles = makeStyles(( theme ) => ({
      root: {
@@ -40,7 +40,6 @@ const useStyles = makeStyles(( theme ) => ({
      }
 }));
 
-
 function Copyright () {
     return (
         <Typography variant = "body2" align = "center">
@@ -52,14 +51,12 @@ function Copyright () {
     )
 }
 
-
 function Sigin() {
     const classes = useStyles();
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState("");
-    const account = useSelector(state => state);
     const dispatch = useDispatch();
 
     async function handleSigin() {        
