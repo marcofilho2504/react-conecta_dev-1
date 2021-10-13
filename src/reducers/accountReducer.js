@@ -1,12 +1,18 @@
-const accountReducer = () => {
-    return {
-        user: {
-            id: 1,
-            name: 'Marco Aurélio',
-            username: 'MarcoAurélio',
-            email: 'marcoaurelio.filho25@gmail.com'
+const INITIAL_STATE = {
+    user: {}
+}
+
+
+
+const accountReducer = (state = INITIAL_STATE, action) => {
+    if (action.type === 'LOGIN_SUCCESS') {
+        return {
+            ...state,
+            user: action.payload.user
         }
     }
+    
+    return state;
 }
 
 export default accountReducer;

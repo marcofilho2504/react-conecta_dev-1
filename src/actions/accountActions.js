@@ -1,16 +1,16 @@
+import authService from '../services/authService';
 
-const sigin = (email, password) => {
-    return (dispatch) => {
+
+const sigin = (email, password) => { 
+    return async (dispatch) => {
+      const user = await authService.sigin(email, password);
         dispatch({
             type: 'LOGIN_SUCCESS',
             payload: {
-              user: {  
-                id: 1,
-                name: 'Marco Aurélio',
-                username: 'MarcoAurélio',
-                email: 'marcoaurelio.filho25@gmail.com'
-              }
+              user
             }
         })
     }
 }
+
+export default sigin;

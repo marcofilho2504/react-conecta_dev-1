@@ -10,7 +10,8 @@ import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link";
 import { useNavigate } from "react-router";
 import FormHelperText from "@material-ui/core/FormHelperText";
-import authService from '../../services/authService';
+import sigin from '../../actions/accountActions';
+import { useSelector, useDispatch } from "react-redux";
 
 const useStyles = makeStyles(( theme ) => ({
      root: {
@@ -58,10 +59,12 @@ function Sigin() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState("");
+    const account = useSelector(state => state);
+    const dispatch = useDispatch();
 
     async function handleSigin() {        
         try {
-            await authService.sigin(email, password);
+            await dispatch(sigin(email, password));
             navigate('/');
         } catch (error){
             setErrorMessage(error.response.data.message);
