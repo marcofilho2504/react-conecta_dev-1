@@ -34,12 +34,18 @@ class AuthService {
         })
     }
 
-
-    setToken = (token) => {
-        localStorage.setItem("accessToken", token);
+    siginOut = () => {
+        this.removeToken();
     }
 
-    getToken = () => localStorage.getItem("accessToken")
+
+    setToken = (token) => {
+        localStorage.setItem('accessToken', token);
+    }
+
+    getToken = () => localStorage.getItem('accessToken');
+
+    removeToken = () => localStorage.removeItem('accessToken');
 
     isAuthenticated = () => !!this.getToken();
     

@@ -2,6 +2,8 @@ import authService from '../services/authService';
 
 export const LOGIN_SUCCESS = '@ACCOUNT/LOGIN_SUCCESS';
 export const SILENT_LOGIN = '@ACCOUNT/SILENT_LOGIN';
+export const SIGINOUT = '@ACCOUNT/SIGINOUT';
+
 
 const sigin = (email, password) => { 
     return async (dispatch) => {
@@ -17,7 +19,7 @@ const sigin = (email, password) => {
 
 const setUserData = () => { 
   return async (dispatch) => {
-    const user = await authService.siginWithToken('email, password');
+    const user = await authService.siginWithToken();
       dispatch({
           type: SILENT_LOGIN,
           payload: {
@@ -27,5 +29,14 @@ const setUserData = () => {
   }
 }
 
+const siginOut = () => {
+  return async (dispatch) => {
+    await authService.siginOut();
+      dispatch({
+          type: SIGINOUT,
+      })
+  }
+}
 
-export  { sigin, setUserData };
+
+export  { sigin, setUserData, siginOut };
