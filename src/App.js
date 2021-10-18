@@ -12,19 +12,21 @@ import Auth from './components/auth';
 
 function App() {
   return (
-    <Provider store = {store}>
-      <ThemeProvider theme={theme}>
-        <BrowserRouter>
-          <Auth>
-            <Routes>
-                <Route path = "/" element = {<Home/>} />
-                <GuestRoute path = "/sigin" element = {<Sigin/>}/>
-                <Route path = "*" element = {<h1> PAGINA NÃO ENCONTRADA! </h1>}/>
-            </Routes>
-          </Auth>
-        </BrowserRouter>
-      </ThemeProvider>
-    </Provider>
+    <div>
+     <Provider store = {store}>
+       <ThemeProvider theme={theme}>
+         <BrowserRouter>
+           {/* <Auth>
+             <Routes>
+                 <Route path = "/" element = {<Home/>} />
+                 <GuestRoute path = "/sigin" element = {<Sigin/>}/>
+                 <Route path = "*" element = {<h1> PAGINA NÃO ENCONTRADA! </h1>}/>
+             </Routes>
+           </Auth> */}
+         </BrowserRouter>
+       </ThemeProvider>
+     </Provider>
+    </div>    
   );
 }
 
