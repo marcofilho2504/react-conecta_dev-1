@@ -9,7 +9,8 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import './mock';
 import store from './store'
 import Auth from './components/Auth';
-
+import NewPost from './pages/Post/New';
+import Feed from './pages/Feed';
 
 function App() {
   return (
@@ -18,14 +19,17 @@ function App() {
           <BrowserRouter>
             <Auth>
               <Routes>
-                <GuestRoute path = "/sigin" element = {<Sigin />}/>
-                <Route path = "//*" element = {<Home />} />
+                <Route path = "/" element = {<Home/>} />
+                <Route path = "/post/new" element = {<NewPost/>} />
+                <Route path = "/feed" element = {<Feed/>} />
+                 <GuestRoute path = "/sigin" element = {<Sigin/>}/>
+                <Route path="*" element={<h1> PAGINA NÃO ENCONTRADA! </h1>} />
               </Routes>
             </Auth>
           </BrowserRouter>
         </ThemeProvider>
       </Provider>
   );
-};
+}
 
 export default App;

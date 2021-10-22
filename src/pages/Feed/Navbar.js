@@ -4,6 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { ListItem, ListItemText } from "@material-ui/core";
+import Header from "../home/components/Header";
 
 const useStyles = makeStyles(( theme ) => {
     return ({
@@ -33,6 +34,9 @@ function NavBar() {
 
     return (
         <Paper className = {classes.root}>
+        <div>
+            <Header />
+        </div>
             <Button variant = "outlined" color = "secondary" className = {classes.Button} >Registrar gratis </Button>
             <ListSubheader> {'tags em alta'} </ListSubheader>
             {

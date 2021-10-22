@@ -11,7 +11,7 @@ function WritePost() {
 
     return (
         <Button variant = "contained" color = "primary" onClick = {handleClick} >
-            novo post
+            New Post
         </Button>
     )
 }
