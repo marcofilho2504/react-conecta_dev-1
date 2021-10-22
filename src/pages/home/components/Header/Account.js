@@ -26,7 +26,7 @@ function Account() {
     const handleSiginOut = () => {
         handleClose();
         dispatch(siginOut());
-        navigate('/');
+        navigate('/sigin');
     }
 
 
@@ -34,7 +34,7 @@ function Account() {
         <>
             <Avatar ref = {ref} onClick = {handleOpen} alt="Remy Sharp" src = {account.user && account.user.Avatar} />
 
-            {
+            {/* {
                 isAuthenticated
                 ? (<Menu anchorEl = {ref.current} anchorOrigin = {{vertical: 'bottom', horizontal: 'center'}} open = {{isOpen}} onClose = {{handleClose}} getContentAnchorEl = {null}>
                     <MenuItem> Perfil </MenuItem>
@@ -48,7 +48,7 @@ function Account() {
                     <MenuItem> Registrar Gratis!! </MenuItem>
                     <MenuItem> Entrar </MenuItem>
                 </Menu>)
-            }
+            } */}
 
         </>
     )

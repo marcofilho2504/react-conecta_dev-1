@@ -6,8 +6,8 @@ function WritePost() {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate('/post/new')
-    }
+        navigate('/post/new'); 
+    };
 
     return (
         <Button variant = "contained" color = "primary" onClick = {handleClick} >
@@ -16,4 +16,4 @@ function WritePost() {
     )
 }
 
-export default WritePost;
+export default WritePost; 

@@ -1,8 +1,11 @@
 import React from "react";
 import { makeStyles } from '@material-ui/styles'
 import Paper from "@material-ui/core/Paper";
+import Container from "@material-ui/core/Container";
+import Box from "@material-ui/core/Box";
 
-import PostCard from "../../../components/post card";
+import PostCard from '../../components/post card/index'
+import NavBar from "./Navbar";
 
 const useStyles = makeStyles({
     root: {
@@ -47,13 +50,16 @@ function Feed() {
     const classes = useStyles();
 
     return (
-        <Paper className = {classes.root}>
-            {
-                posts.map(post => (
-                    <PostCard key={post.id} post={post}/>
-                ))
-            }
-        </Paper>
+        <Container maxWidth = "lg">
+            <Box display = "flex">
+                <NavBar />
+                <div className = {classes.root}> 
+                    {posts.map((post) => (
+                        <PostCard key = {post.id} post = {post} />
+                    ))}
+                </div>
+            </Box>
+        </Container>
     )
 }
 

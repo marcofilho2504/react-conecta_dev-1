@@ -40,10 +40,10 @@ class AuthService {
 
 
     setToken = (token) => {
-        localStorage.setItem('accessToken', token);
+        localStorage.setItem("accessToken", token);
     }
 
-    getToken = () => localStorage.getItem('accessToken');
+    getToken = () => localStorage.getItem("accessToken");
 
     removeToken = () => localStorage.removeItem('accessToken');
 

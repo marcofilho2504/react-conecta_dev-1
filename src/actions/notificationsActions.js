@@ -4,7 +4,7 @@ export const GET_NOTIFICATIONS = '@notifications/GET_NOTIFICATIONS';
 
 const getNotifications = () => {
   return async (dispatch) => {
-      const notifications = await axios.get('/api/notofications');
+      const notifications = await axios.get('/api/notifications');
 
       dispatch({
           type: GET_NOTIFICATIONS,

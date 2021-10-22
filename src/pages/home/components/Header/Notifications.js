@@ -30,8 +30,8 @@ const iconsMap = {
 
 const useStyles = makeStyles((theme) => ({
     icon: {
-        background: theme.palette.secondary.main,
-        color: theme.palette.secondary.contrastText
+        background: theme.palette,
+        color: theme.palette
     }
 }))
 
@@ -87,7 +87,7 @@ function Notifications() {
                                                 </SvgIcon>
                                             </Avatar>
                                         </ListItemAvatar>
-                                        <ListItemText primary = {notification.title} primaryTypographyProps = {{variant: 'subtitle2', color: 'textPrimary'}} secondary = {notification.description} />
+                                        <ListItemText primary = {notification.title} primaryTypographyProps = {{variant: 'subtitle2', colo: 'textPrimary'}} secondary = {notification.description} />
                                     </ListItem>
                                 );
                         })}

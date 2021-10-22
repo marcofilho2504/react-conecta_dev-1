@@ -1,12 +1,9 @@
 import React from "react";
-// import './style.css'
 import { makeStyles } from '@material-ui/styles';
-
 import Header from "./components/Header";
-import Feed from "./components/Feed";
-import NavBar from "./components/NavBar";
-import Container from "@material-ui/core/Container";
-import Box from "@material-ui/core/Box";
+import { Route, Routes } from "react-router-dom";
+import NewPost from "../Post/New";
+import Feed from "../Feed";
 
 const useStyles = makeStyles({
     root: {
@@ -20,26 +17,24 @@ const useStyles = makeStyles({
     toobar: {
         minHeight: '64px',
     }
-})
+});
 
 function Home() {
     const classes = useStyles();
 
     return (
         <div className = {classes.root}>
-        <Header />
-        <div className = {classes.toolbar}></div>
-       <main className = {classes.main}>
-           <Container maxWidth = "lg">
-                <Box display = "flex">
-                    <NavBar />
-                    <Feed />
-                </Box>
-            </Container>
-       </main>
+            <Header />
+            <div className = {classes.toolbar} />
+            <main className = {classes.main} />
+            <Routes>
+                <Route path = "/Feed" element = { <Feed /> } />
+                <Route path = "/post/new" element = { <NewPost /> } />
+                <Route path="*" element={<h1> PAGINA NÃO ENCONTRADA! </h1>} />
+            </Routes>
     </div>
-    )
-}
+    );
+};
 
 
 export default Home;
