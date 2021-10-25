@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import { siginOut } from '../../../../actions/accountActions';
+import { siginOut } from '../../../actions/accountActions';
 
 function Account() {
     const account = useSelector((state) => state.account);
@@ -26,7 +26,7 @@ function Account() {
     const handleSiginOut = () => {
         handleClose();
         dispatch(siginOut());
-        navigate('/sigin');
+        navigate('/');
     }
 
 

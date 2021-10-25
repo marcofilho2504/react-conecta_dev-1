@@ -5,7 +5,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { getNotifications } from '../../../../actions/notificationsActions';
+import { getNotifications } from '../../../actions/notificationsActions';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem'; 
 import ListItemText from '@material-ui/core/ListItemText';

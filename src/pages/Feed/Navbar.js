@@ -4,7 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { ListItem, ListItemText } from "@material-ui/core";
-import Header from "../home/components/Header";
+import Header  from "../home/Header";
 
 const useStyles = makeStyles(( theme ) => {
     return ({

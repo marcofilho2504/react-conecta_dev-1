@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from '@material-ui/styles';
-import Header from "./components/Header";
+import Header from "./Header";
 import { Route, Routes } from "react-router-dom";
 import NewPost from "../Post/New";
 import Feed from "../Feed";
@@ -11,7 +11,7 @@ const useStyles = makeStyles({
         flexDirection: 'column'
     },
     main: {
-        height: '100vh',
+        height: 'calc(100vh - 64px)',
         padding: 24
     },
     toobar: {
@@ -28,6 +28,7 @@ function Home() {
             <div className = {classes.toolbar} />
             <main className = {classes.main} />
             <Routes>
+                <Route path = "/" element = { <Feed /> } />
                 <Route path = "/Feed" element = { <Feed /> } />
                 <Route path = "/post/new" element = { <NewPost /> } />
                 <Route path="*" element={<h1> PAGINA NÃO ENCONTRADA! </h1>} />
