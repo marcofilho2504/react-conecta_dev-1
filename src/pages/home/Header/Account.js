@@ -29,6 +29,10 @@ function Account() {
         navigate('/');
     }
 
+    const handleOpen2 = () => {
+        navigate('/sigin');
+    }
+
 
     return (
         <>
@@ -46,7 +50,7 @@ function Account() {
 
                 : (<Menu anchorEl = {ref.current} anchorOrigin = {{vertical: 'bottom', horizontal: 'center'}} open = {{isOpen}} onClose = {{handleClose}} getContentAnchorEl = {null}>
                     <MenuItem> Registrar Gratis!! </MenuItem>
-                    <MenuItem> Entrar </MenuItem>
+                    <MenuItem onClick = {handleOpen2}> Entrar </MenuItem>
                 </Menu>)
             } */}
 
