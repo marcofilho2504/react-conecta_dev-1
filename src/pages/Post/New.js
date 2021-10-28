@@ -7,7 +7,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles } from '@material-ui/styles';
 import TextField from '@material-ui/core/TextField';
 import React, { useCallback, useState } from 'react';
-// import Autocomplete from '@mui/material/Autocomplete';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 
 const useStyles = makeStyles((theme) => ({
     root: {},
@@ -23,6 +23,13 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
     }
 }));
+
+const tags = [
+    { title: 'react.js' },
+    { title: 'node.js' },
+    { title: 'dotnetcore' },
+    { title: 'webdev' }
+];
 
 function NewPost() {
     const classes = useStyles();
@@ -63,20 +70,21 @@ function NewPost() {
                     {image && <img className = {classes.image} src = {image} alt = "background" />}
                     <TextField id = "Title" placeholder = "Titulo" fullWidth />
 
-                    {/* <Autocomplete
+                    <Autocomplete
                         multiple
                         id="tags-standard"
-                        options={top100Films}
+                        options={tags}
                         getOptionLabel={(option) => option.title}
-                        defaultValue={[top100Films[13]]}
+                        defaultValue={[tags[0]]}
                         renderInput={(params) => (
-                            
                         <TextField
                             {...params}
                             variant="standard"
                             label="Multiple values"
                             placeholder="Favorites"
-                        /> */}
+                        />
+                        )}
+                    />
                 </Box> 
 
                 <Box width = '50%' height = '100%' padding = {2}>
