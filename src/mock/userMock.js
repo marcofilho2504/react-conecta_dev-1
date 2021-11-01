@@ -2,9 +2,10 @@ import mock from "../utils/mock";
 
 mock.onPost('/api/home/me').reply(200, {
     user: {
-        'id': 1,
-        'username': 'marcofilho2504',
-        'email': 'marcoaurelio.filho25@gmail.com'
+        id: 1,
+        name: 'Marco Aurélio',
+        username: 'marcofilho2504',
+        email: 'marcoaurelio.filho25@gmail.com'
     }
 });
 

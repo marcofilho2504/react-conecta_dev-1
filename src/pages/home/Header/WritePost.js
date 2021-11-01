@@ -1,7 +1,7 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
  
 function WritePost() {
     const navigate = useNavigate();

@@ -1,9 +1,9 @@
-import React, { useState, useRef } from 'react';
-import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from 'react-router-dom';
-import Avatar from '@material-ui/core/Avatar';
 import Menu from '@material-ui/core/Menu';
+import Avatar from '@material-ui/core/Avatar';
+import { useNavigate } from 'react-router-dom';
+import React, { useState, useRef } from 'react';
 import MenuItem from '@material-ui/core/MenuItem';
+import { useSelector, useDispatch } from "react-redux";
 import { siginOut } from '../../../actions/accountActions';
 
 function Account() {

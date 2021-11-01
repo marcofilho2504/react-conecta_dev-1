@@ -1,9 +1,9 @@
 import React from "react";
-import { makeStyles } from '@material-ui/styles';
-import Header from "./Header";
-import { Route, Routes } from "react-router-dom";
-import NewPost from "../Post/New";
 import Feed from "../Feed";
+import Header from "./Header";
+import NewPost from "../Post/New";
+import { makeStyles } from '@material-ui/styles';
+import { Route, Routes } from "react-router-dom";
 
 const useStyles = makeStyles({
     root: {
