@@ -1,49 +1,101 @@
-import React from 'react';
+import React, {  useCallback, useContext } from 'react';
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/core/Autocomplete';
+import { makeStyles } from '@material-ui/styles';
+import { useDropzone } from 'react-dropzone';
+
+import { PostContext } from '../../../../Context/PostContext'
+import Title from './Title';
+
+const useStyles = makeStyles((theme) => ({
+    image: {
+        height: '150px',
+    },
+    textarea: {
+        width: '100%',
+        height: '100%',
+        resize: 'none',
+        border: 'none',
+        outline: 'none',
+        fontSize: 20,
+        background: '#F0FFF0F'
+    },
+}));
+
+const arrayTags = [
+    { Title: 'react.js' },
+    { Title: 'node.js' },
+    { Title: 'webdev' },
+    { Title: 'dotnetcore' },
+];
 
 function PostEditor() {
-    return (
+    const classes = useStyles();
+    const ctx = useContext(PostContext);
+
+    const {
+        image,
+        setImage,
+        Tags,
+        setTags,
+        MarkdownText,
+        setMarkdownText } = ctx;
+
+    const onDrop = useCallback(acceptedFiles => {
+        const file = acceptedFiles[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = () => {
+            const base64data = reader.result;
+            setImage(base64data);
+        };
+    }, [setImage]);
+
+    const { getRootProps, getInputProps } = useDropzone({
+        onDrop,
+        multiple: false,
+        accept: 'image/*' 
+    });
+
+    return(
         <>
-            <Box width = "50%" height = "100%" padding = {2} borderRight = "3px solid black" > 
-
-                <Box {...getRootProps()} mb = {1}>
-                    <input {...getInputProps()} />
-                    <Button> Carregar Imagens </Button>
-                </Box>
-                            
-                {image && 
-                    <Box mb = {2}>
-                        <img className = {classes.image} src = {image} alt = "background" />
-                    </Box>
-                }
+            <Box> 
+                <Box {...getRootProps()} mb = {2}>
+                            <input {...getInputProps()} />
+                            <Button> Carregar Imagens.. </Button>
+                        </Box>
 
                 <Box mb = {2}>
-                    <TextField id = "Title" placeholder = "Titulo" variant="standard" fullWidth value = {Title} onChange = {handleTitleChange} />
-                </Box>
-                            
+                            {Image && <img className = {classes.Image} src = {Image} alt = 'background' />}
+                        </Box>
+
                 <Box mb = {2}>
-                    <Autocomplete 
-                        multiple
-                        id = "tags-standard"
-                        options = {arrayTags}
-                        getOptionLabel = {(option) => option.title}
-                        value = {Tags}
-                        onChange = {handleTagsChange}
-                        renderInput = {(params) => (
-                        <TextField
-                            {...params}
-                            variant = "standard"
-                            placeholder = "tags"
-                        />
-                    )}
-                    /> 
+                    <Title />
                 </Box>
 
-                <textarea onChange = {handleChangeMarkDown} className = {classes.textarea}> editor </textarea>
-            </Box>      
+                <Box mb = {2}>
+                            <Autocomplete 
+                                multiple
+                                id = 'tags-standard'
+                                options = {arrayTags}
+                                getOptionLabel = {(option) => option.Title}
+                                value = {Tags}
+                                onChange = {setTags}
+                                renderInput = {(params) => (
+                                    <TextField
+                                    {...params}
+                                    variant = 'standard'
+                                    placeholder = 'Tags'
+                                    />
+                                )}
+                            />
+                        </Box>
+                <textarea onChange = {setMarkdownText} value = {MarkdownText} className = {classes.textarea} > Editor </textarea>
+            </Box>
         </>
     )
-}
+};
 
 export default PostEditor;
