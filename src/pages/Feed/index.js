@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { makeStyles } from '@material-ui/styles'
-import Paper from "@material-ui/core/Paper";
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 
+import axios from '../../utils/axios'
 import PostCard from '../../components/post card/index'
 import NavBar from "./Navbar";
 
@@ -13,54 +13,31 @@ const useStyles = makeStyles({
     }
 });
 
-const posts = [
-    {
-        id: 1,
-        author: {
-            id: 1,
-            name: 'Marco Aurelio',
-            userName: 'aurelio25m',
-            avatar: '/images/avatars/avatar_1.jpg'
-        },
-        title: "Criando um app do zero usando react.js",
-        date: "September 28, 2021",
-        description: 'fala pessoal! qual o framework favorito de vcs?',
-        hashtags: "#dotnet, #javasricpt, #reactjs, #developer",
-        image: "https://conectadev.vercel.app/images/posts/post1.png"
-    },
-    {
-        id: 2,
-        author: {
-            id: 1,
-            name: 'Marco Aurelio',
-            userName: 'aurelio25m',
-            avatar: '/images/avatars/avatar_1.jpg'
-        },
-        title: "Comparativo entre React.js e Vue.js - Performance",
-        date: "September 28, 2021",
-        description: 'Quero criar um bootcamp gratuito para passar um pouco da minha experiencia',
-        hashtags: "#framework, #javasricpt, #reactjs, #vue",
-        image: "https://conectadev.vercel.app/images/posts/post2.png"
-    }
-];
-
-console.log(posts);
-
 function Feed() {
     const classes = useStyles();
+    const [posts, setPosts] = useState([]);
 
-    return (
-        <Container maxWidth = "lg">
-            <Box display = "flex">
-                <NavBar />
-                <div className = {classes.root}> 
+   const getPosts = useCallback(async () => {
+       const feed = await axios.get('/api/feed');
+       setPosts(feed.data.posts);
+   }, [setPosts]);
+
+   useEffect(() => {
+       getPosts();
+   }, [getPosts]);
+
+   return (
+       <Container maxWidth = 'lg'>
+            <Box display = 'flex'>
+                <NavBar /> 
+                <div className = {classes.root}>
                     {posts.map((post) => (
                         <PostCard key = {post.id} post = {post} />
                     ))}
                 </div>
             </Box>
         </Container>
-    )
+   );
 }
 
 export default Feed;

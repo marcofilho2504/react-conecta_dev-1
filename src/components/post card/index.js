@@ -9,20 +9,20 @@ import Typography from '@material-ui/core/Typography';
 import  Avatar  from '@material-ui/core/Avatar';
 import  IconButton  from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import BookmarkIcon from '@material-ui/icons/Bookmark';
 import MessageIcon  from '@material-ui/icons/Message';
+import { useNavigate } from 'react-router-dom';
+import moment from 'moment';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(() => ({
     root: {
-        marginBottom: 16,
-        marginTop: 70,
+        marginBottom: 16
     },
     subheader: {
         display: 'flex',
         alignItems: 'center',
     },
     caption: {
-        marginRight: 16,
+        marginRight: 26,
     },
     message: {
         height: 'auto',
@@ -40,19 +40,25 @@ const useStyles = makeStyles({
     favorite: {
         marginLeft:  'auto'
     }
-});
+}));
 
 function PostCard({ post }) {
     const classes = useStyles();
+    const navigate = useNavigate();
+
+    const handlePostClick = () => {
+        navigate(`/post/${post.slug}`);
+    };
+
     return (
-        <Card className = {classes.root}>
+        <Card className = {classes.root} onClick = {handlePostClick} >
             <CardHeader
-                avatar = {<Avatar src = {post.author.avatar} />}
+                avatar = {<Avatar src = {post.author?.avatar} />}
                 title = {<Typography variant = "h6">{post.title}</Typography>}
                 subheader = {
                     <div className = {classes.subheader}>
                     <Typography variant = "caption" className = {classes.caption}>
-                        {'Avaliado por'}
+                        {'criado por'}
                     </Typography>
 
                     <Typography variant = "subtitle2" className = {classes.caption}>
@@ -60,7 +66,7 @@ function PostCard({ post }) {
                     </Typography>
 
                     <Typography variant = "caption" className = {classes.caption}>
-                        {post.date}
+                        {moment(post.date).fromNow()}
                     </Typography>
                     </div>
                 }
@@ -87,12 +93,11 @@ function PostCard({ post }) {
                 <IconButton aria-label = "comment">
                     <MessageIcon />
                     <Typography classname = {classes.reactions} color = "textSecondary" variant = "body2">
-                        {'36'}
+                        {'30'}
                     </Typography>
                 </IconButton>
 
                 <IconButton arial-label = "favorite" classname = {classes.favorite}>
-                    <BookmarkIcon />
                 </IconButton>
 
             </CardActions>

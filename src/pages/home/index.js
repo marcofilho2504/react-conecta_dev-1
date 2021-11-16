@@ -5,6 +5,8 @@ import NewPost from "../Post/New";
 import { makeStyles } from '@material-ui/styles';
 import { Route, Routes } from "react-router-dom";
 
+import Post from '../Post/New/index1';
+
 const useStyles = makeStyles({
     root: {
         display: 'flex',
@@ -31,11 +33,11 @@ function Home() {
                 <Route path = "/" element = { <Feed /> } />
                 <Route path = "/Feed" element = { <Feed /> } />
                 <Route path = "/post/new" element = { <NewPost /> } />
-                <Route path="*" element={<h1> PAGINA NÃO ENCONTRADA! </h1>} />
+                <Route path = "/post/:slug" element = { <Post /> } /> 
+                <Route path = "*" element = {<h1> PAGINA NÃO ENCONTRADA! sdfisifgsugdefsy </h1>} />
             </Routes>
     </div>
     );
 };
-
 
 export default Home;

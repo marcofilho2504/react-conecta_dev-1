@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/styles';
 import { useSelector } from 'react-redux';
+import { usePost } from '../../../../Context/PostContext'
 
 const useStyles = makeStyles((theme) => ({
     imagePreview: {
@@ -16,9 +17,12 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function PostPreview({ Image, Title, Tags, MarkdownText }) {
+function PostPreview() {
     const classes = useStyles();
     const account = useSelector(state => state.account);
+
+    const ctx = usePost();
+    const { Image, Title, Tags, MarkdownText } = ctx;
 
     return (
         <>

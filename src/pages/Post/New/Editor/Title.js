@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import { PostContext } from '../../../../Context/PostContext'
+
+import { usePost } from '../../../../Context/PostContext'
 
 function Title() {
-    const ctx = useContext(PostContext);
-
+    const ctx = usePost();
     const { Title, setTitle } = ctx;
 
     return (
@@ -12,7 +12,7 @@ function Title() {
             id = 'title'
             placeholder = 'Titulo'
             fullWidth
-            value = {title}
+            value = {Title}
             onChange = {setTitle}
         />
     );

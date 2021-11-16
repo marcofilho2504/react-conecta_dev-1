@@ -11,6 +11,7 @@ import store from './store'
 import Auth from './components/Auth';
 import NewPost from './pages/Post/New';
 import Feed from './pages/Feed';
+import Postview from './components/Postview';
 
 function App() {
   return (
@@ -21,8 +22,9 @@ function App() {
               <Routes>
                 <Route path = "/" element = {<Home/>} />
                 <Route path = "/post/new" element = {<NewPost/>} />
+                <Route path = "/post/:slug" element = { <Postview /> } /> 
                 <Route path = "/feed" element = {<Feed/>} />
-                 <GuestRoute path = "/sigin" element = {<Sigin/>}/>
+                <GuestRoute path = "/sigin" element = {<Sigin/>}/>
                 <Route path="*" element={<h1> PAGINA NÃO ENCONTRADA! </h1>} />
               </Routes>
             </Auth>
