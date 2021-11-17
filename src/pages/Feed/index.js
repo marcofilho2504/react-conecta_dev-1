@@ -6,6 +6,7 @@ import Box from "@material-ui/core/Box";
 import axios from '../../utils/axios'
 import PostCard from '../../components/post card/index'
 import NavBar from "./Navbar";
+import './style.css';
 
 const useStyles = makeStyles({
     root: {
@@ -29,7 +30,11 @@ function Feed() {
    return (
        <Container maxWidth = 'lg'>
             <Box display = 'flex'>
-                <NavBar /> 
+                
+                <div className = 'navbar'>   
+                    <NavBar /> 
+                </div>
+
                 <div className = {classes.root}>
                     {posts.map((post) => (
                         <PostCard key = {post.id} post = {post} />

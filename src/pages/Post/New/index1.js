@@ -1,14 +1,16 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import axios from '../../../utils/axios';
 import Postview from '../../../components/Postview';
 
 function Post() {
-    const [Post, setPost] = useState([]);
+    const [post, setPost] = useState([]);
+    const params = useParams();
 
     const getPost  = useCallback(async () => {
         const Feed = await axios.get(
-            '/api/post/como-melhorar-seu-codigo-javascript',
+            `/api/post/${params.slug}`,
         );
         setPost(Feed.data);
     }, [setPost]);
@@ -17,7 +19,7 @@ function Post() {
         getPost();
     }, [getPost]);
 
-    return <Postview Post = {Post} />;
+    return <Postview post = {post} />;
 }
 
 export default Post;

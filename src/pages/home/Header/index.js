@@ -7,6 +7,8 @@ import Account from "./Account";
 import Notifications from "./Notifications";
 import WritePost from './WritePost';
 import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles({
     appBar: {
@@ -27,10 +29,16 @@ const useStyles = makeStyles({
 
 function Header() {
     const classes = useStyles(); 
+    const navigate = useNavigate();
+    
+    const handleEntrarClick = () => {
+        navigate('/sigin');
+    };
 
      return (
          <AppBar position = "fixed" color = "inherit" className={classes.appBar}>
             <Toolbar>
+
                 
             <Link to = '/'>
                <img src = "https://conectadev.vercel.app/images/logo.png"  alt = "logo" className={classes.img} />
@@ -47,6 +55,10 @@ function Header() {
                 <Box ml = {2}> 
                     <Account />
                 </Box>
+
+                <Button onClick = {handleEntrarClick} color = 'secondary' >
+                    Login
+                </Button>
 
               </div>             
             </Toolbar>

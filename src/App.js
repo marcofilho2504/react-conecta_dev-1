@@ -1,17 +1,17 @@
-import React from 'react';
-import GuestRoute from './routes/GuestRoute';
-import Sigin from './pages/sigin';
-import Home from './pages/home';
-import theme from './theme';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { ThemeProvider } from '@material-ui/core/styles';
 import './mock';
-import store from './store'
-import Auth from './components/Auth';
-import NewPost from './pages/Post/New';
+import React from 'react';
+import theme from './theme';
+import store from './store';
 import Feed from './pages/Feed';
+import Home from './pages/home';
+import Sigin from './pages/sigin';
+import Auth from './components/Auth';
+import { Provider } from 'react-redux';
+import NewPost from './pages/Post/New';
+import GuestRoute from './routes/GuestRoute';
 import Postview from './components/Postview';
+import { ThemeProvider } from '@material-ui/core/styles';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (

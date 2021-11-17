@@ -10,7 +10,7 @@ mock.onGet('/api/post/como-melhorar-seu-codigo-javascript').reply(200, {
         author: {
             id: 1,
             name: 'Marco Aurélio',
-            avatar: 'Pasta pessoal/imagens/Captura de tela de 2021-10-13 14-59-29.png',
+            avatar: 'https://i.pinimg.com/564x/64/01/f9/6401f990d444f01143bfcd01a28d7cb6.jpg',
         },
         tags: ['eslint', 'prettier', 'editorconfig', 'vscode'],
         image: 'https://raw.githubusercontent.com/lucasnhimi/conectadev/master/public/images/posts/post1.png',
@@ -29,7 +29,7 @@ mock.onGet('/api/feed').reply(200, {
             author: {
                 id: 1,
                 name: 'Marco Aurélio',
-                avatar: 'Pasta pessoal/imagens/Captura de tela de 2021-10-13 14-59-29.png',
+                avatar: 'https://i.pinimg.com/564x/64/01/f9/6401f990d444f01143bfcd01a28d7cb6.jpg',
             },
             tags: ['eslint', 'prettier', 'editorconfig', 'vscode'],
             image: 'https://raw.githubusercontent.com/lucasnhimi/conectadev/master/public/images/posts/post1.png',
@@ -44,7 +44,7 @@ mock.onGet('/api/feed').reply(200, {
             author: {
                 id: 1,
                 name: 'Marco Aurélio',
-                avatar: 'Pasta pessoal/imagens/Captura de tela de 2021-10-13 14-59-29.png',
+                avatar: 'https://i.pinimg.com/564x/64/01/f9/6401f990d444f01143bfcd01a28d7cb6.jpg',
             },
             tags: ['react.js', 'javascript'],
             image: 'https://raw.githubusercontent.com/lucasnhimi/conectadev/master/public/images/posts/post2.png',
