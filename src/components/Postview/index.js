@@ -88,4 +88,3 @@ function Postview({ post }) {
 }
  
 export default Postview;
-

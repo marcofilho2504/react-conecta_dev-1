@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/styles';
 import { Route, Routes } from "react-router-dom";
 
 import Post from '../Post/New/index1';
+import Profile from "../Profile";
 
 const useStyles = makeStyles({
     root: {
@@ -31,6 +32,7 @@ function Home() {
             <main className = {classes.main} />
             <Routes>
                 <Route path = "/" element = { <Feed /> } />
+                <Route path = "/profile" element = { <Profile /> } />
                 <Route path = "/Feed" element = { <Feed /> } />
                 <Route path = "/post/new" element = { <NewPost /> } />
                 <Route path = "/post/:slug" element = { <Post /> } /> 

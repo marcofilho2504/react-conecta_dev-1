@@ -23,4 +23,5 @@ function WritePost() {
     )
 }
 
-export default WritePost; 
+
+export default WritePost;

@@ -78,7 +78,7 @@ function PostCard({ post }) {
                 </Typography>
 
                 <CardActionArea>
-                    <img src = {post.image} className = {classes.image} alt = "img" />
+                    <img className = {classes.image} src = 'https://conectadev.vercel.app/images/posts/post1.png' />
                 </CardActionArea>
             </CardContent>
 

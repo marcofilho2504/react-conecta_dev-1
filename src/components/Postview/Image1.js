@@ -17,7 +17,7 @@ function Tags() {
 
     return (
         <div>
-            <img className = {classes.image} src = 'https://raw.githubusercontent.com/lucasnhimi/conectadev/master/public/images/posts/post1.png' />
+            <img className = {classes.image} src = 'https://conectadev.vercel.app/images/posts/post1.png' />
         </div>
     )
 }

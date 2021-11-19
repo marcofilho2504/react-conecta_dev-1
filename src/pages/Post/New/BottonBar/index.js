@@ -42,6 +42,3 @@ function BottoBar() {
 
 
 export default BottoBar;
-
-
-

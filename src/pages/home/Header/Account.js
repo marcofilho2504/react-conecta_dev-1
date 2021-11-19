@@ -42,12 +42,10 @@ function Account() {
                 isAuthenticated
                 ? (<Menu anchorEl = {ref.current} anchorOrigin = {{vertical: 'bottom', horizontal: 'center'}} open = {{isOpen}} onClose = {{handleClose}} getContentAnchorEl = {null}>
                     <MenuItem> Perfil </MenuItem>
-                    <MenuItem> Meus Favoritos </MenuItem>
                     <MenuItem> Meus Posts </MenuItem>
                     <MenuItem> Minhas Conexões </MenuItem>
                     <MenuItem onClick = {handleSiginOut}> Sair </MenuItem>
                 </Menu>)
-
                 : (<Menu anchorEl = {ref.current} anchorOrigin = {{vertical: 'bottom', horizontal: 'center'}} open = {{isOpen}} onClose = {{handleClose}} getContentAnchorEl = {null}>
                     <MenuItem> Registrar Gratis!! </MenuItem>
                     <MenuItem onClick = {handleOpen2}> Entrar </MenuItem>
