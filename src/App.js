@@ -18,7 +18,7 @@ function App() {
   const settings = useSettings();
 
   return (
-        <ThemeProvider theme={createTheme(settings)}>
+        <ThemeProvider>
           <BrowserRouter>
             <Auth>
               <Routes>
